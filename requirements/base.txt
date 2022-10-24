@@ -1,0 +1,19 @@
+# Django
+# -----------------------------------------------------------------------
+Django==4.1.1                  # https://pypi.org/search/?q=Django
+
+# Django libraries
+# -----------------------------------------------------------------------
+# django-storages[azure]==1.13.1 # https://pypi.org/project/django-storages/
+# django-taggit==2.0.0           # https://pypi.org/project/django-taggit/
+# djangorestframework==3.14.0    # https://pypi.org/project/djangorestframework/
+# django-summernote==0.8.20.0    # https://pypi.org/project/django-summernote/
+# django-resized==1.0.2         # https://pypi.org/project/django-resized/
+# django-widget-tweaks==1.4.12   # https://pypi.org/project/django-widget-tweaks/
+# django-cors-headers==3.13.0    # https://pypi.org/project/django-cors-headers/
+# django-recaptcha==3.0.0         # https://pypi.org/project/django-recaptcha/
+
+# Utilities
+# -----------------------------------------------------------------------
+# pillow==9.2.0                   # https://pypi.org/project/Pillow/
+# python-dotenv==0.21.0           # https://pypi.org/project/python-dotenv/
