@@ -7,6 +7,9 @@ This is a project template that I use mostly when I start a new Django project.
 - `project_name`: The project folder
   - `settings`: The settings module separated by environment type
   - `apps`: Django applications
+  - `templates`: Global Django templates
+  - `static`: Static files
+  - `assets`: Web files used by webpack to generate static files
 - `requirements`: Requirements separated by environment
 - `utility`: A folder which contains differnt scripts, db files, etc.
   - `bootstrap.sh`: A script to generate the `.env` file and start the docker compose
@@ -50,3 +53,5 @@ django-admin startproject --template https://github.com/madalinpopa/django-proje
 - `bootstrap.sh`
 - `compose.yml`
 - `Dockerfile`
+- `gitignore`
+- `dockerignore`
