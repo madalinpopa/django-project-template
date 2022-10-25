@@ -10,7 +10,7 @@ if [ ! -f ".env" ]; then
 
     # General
     echo 'DOCKER_BUILD_ENV="local"' >>.env
-    echo 'DOCKERHUB_USERNAME="project"' >> .env
+    echo 'DOCKERHUB_USERNAME="{{ project_name }}"' >> .env
 
     echo " " >>.env
 
@@ -23,33 +23,9 @@ if [ ! -f ".env" ]; then
 
     echo "# Database variables"  >>.env
     echo 'DB_NAME="{{project_name}}"' >>.env
-    echo 'DB_HOST="db"' >>.env
+    echo 'DB_HOST="localhost"' >>.env
     echo 'DB_PASS="abc123"' >>.env
-    echo 'DB_USER="project"' >>.env
-
-    echo " " >>.env
-
-    echo "# Azure variables"  >>.env
-    echo 'AZURE_ACCOUNT_KEY=' >>.env
-    echo 'APPLICATIONINSIGHTS_CONNECTION_STRING=' >>.env
-
-    echo " " >>.env
-
-    echo "# Stripe variables"  >>.env
-    echo 'STRIPE_PUB_KEY=' >>.env
-    echo 'STRIPE_PRIVATE_KEY=' >>.env
-    echo 'STRIPE_WEBHOOK_SECRET'= >>.env
-
-    echo " " >>.env
-
-    echo "# Sendinblue variables"  >>.env
-    echo 'SENDINBLUE_KEY=' >>.env
-
-    echo " " >>.env
-
-    echo "# Google captcha variables"  >>.env
-    echo 'CAPTCHA_PUBLIC_KEY=' >>.env
-    echo 'CAPTCHA_PRIVATE_KEY=' >>.env
+    echo 'DB_USER="{{ project_name }} "' >>.env
 
 fi
 

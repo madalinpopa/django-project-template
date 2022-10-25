@@ -77,7 +77,3 @@ TEMPLATES = [
 PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.MD5PasswordHasher",
 ]
-
-# Google Captcha
-# -----------------------------------------------------------------------------
-SILENCED_SYSTEM_CHECKS = ["captcha.recaptcha_test_key_error"]

@@ -8,9 +8,7 @@ from .base import *
 
 DEBUG = False
 ALLOWED_HOSTS = [
-    "project.com",
-    "*.project.com",
-    "project.azurewebsites.net",
+    "{{ project_name }}.com",
 ]
 
 # SECURITY
@@ -18,7 +16,7 @@ ALLOWED_HOSTS = [
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_BROWSER_XSS_FILTER = True
-CSRF_TRUSTED_ORIGINS = ["https://*.project.com"]
+CSRF_TRUSTED_ORIGINS = ["https://*.{{ project_name }}.com"]
 
 # DATABASES
 # -----------------------------------------------------------------------------
