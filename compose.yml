@@ -1,0 +1,60 @@
+services:
+  db:
+    image: postgres:14
+    container_name: db
+    restart: always
+    env_file:
+      - ./.env
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  node:
+    image: node:16-alpine
+    container_name: node
+    environment:
+      - NODE_ENV=development
+    working_dir: /app
+    command: yarn run dev
+    volumes:
+      - ./:/app
+
+  webapp:
+    container_name: webapp
+    image: webapp
+    env_file:
+      - .env
+    build:
+      context: .
+      target: development
+      dockerfile: Dockerfile
+      args:
+        - DOCKER_BUILD_ENV=local
+    depends_on:
+      - db
+      - node
+    entrypoint:
+      - python
+      - manage.py
+      - runserver
+      - 0.0.0.0:8000
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/opt/project_name
+    profiles:
+      - webapp
+
+volumes:
+  pgdata: null

@@ -16,4 +16,4 @@ Django==4.1.1                  # https://pypi.org/search/?q=Django
 # Utilities
 # -----------------------------------------------------------------------
 # pillow==9.2.0                   # https://pypi.org/project/Pillow/
-# python-dotenv==0.21.0           # https://pypi.org/project/python-dotenv/
+python-dotenv==0.21.0           # https://pypi.org/project/python-dotenv/
