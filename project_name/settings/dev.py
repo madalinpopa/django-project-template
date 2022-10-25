@@ -57,7 +57,7 @@ DEBUG_TOOLBAR_PANELS = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "project_name/templates"],
+        "DIRS": [BASE_DIR / "{{ project_name }}/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

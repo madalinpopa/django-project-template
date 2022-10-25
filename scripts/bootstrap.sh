@@ -15,14 +15,14 @@ if [ ! -f ".env" ]; then
     echo " " >>.env
 
     echo "# Django variables"  >>.env
-    echo 'DJANGO_SETTINGS_MODULE="project_name.settings.dev"' >>.env
+    echo 'DJANGO_SETTINGS_MODULE="{{project_name}}.settings.dev"' >>.env
     echo 'DJANGO_DEBUG="True"' >>.env
     echo "SECRET_KEY=\"$(cat /dev/urandom | tr -dc '[:alpha:]' | fold -w ${1:-50} | head -n 1)\"" >>.env
 
     echo " " >>.env
 
     echo "# Database variables"  >>.env
-    echo 'DB_NAME="project_name"' >>.env
+    echo 'DB_NAME="{{project_name}}"' >>.env
     echo 'DB_HOST="db"' >>.env
     echo 'DB_PASS="abc123"' >>.env
     echo 'DB_USER="project"' >>.env

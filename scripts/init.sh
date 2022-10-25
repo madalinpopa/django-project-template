@@ -16,4 +16,4 @@ service ssh start
 # =========================================
 # Start gunicorn process
 # =========================================
-gunicorn --preload --bind=0.0.0.0 --timeout 600 --workers=4 --chdir /opt/project_name project_name.wsgi --access-logfile '-' --error-logfile '-'
+gunicorn --preload --bind=0.0.0.0 --timeout 600 --workers=4 --chdir /opt/{{project_name}} {{project_name}}.wsgi --access-logfile '-' --error-logfile '-'
