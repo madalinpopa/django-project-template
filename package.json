@@ -1,0 +1,8 @@
+{
+  "name": "django-project-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:madalinpopa/django-project-template.git",
+  "author": "Madalin Popa <contact@madalinpopa.com>",
+  "license": "MIT"
+}
