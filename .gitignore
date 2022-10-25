@@ -143,3 +143,4 @@ dmypy.json
 project_name/static/css/**
 project_name/static/js/**
 staticfiles
+webpack/webpack-stats.json

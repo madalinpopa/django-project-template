@@ -82,7 +82,7 @@ RUN --mount=type=cache,target=/var/cache/apt-production \
     && echo "$SSH_PASSWD" | chpasswd
 
 # Copy the sshd config file
-COPY ./utility/sshd_config /etc/ssh/
+COPY ./scripts/sshd_config /etc/ssh/
 
 # Set the working directory
 WORKDIR /opt/project_name
@@ -98,4 +98,4 @@ COPY . .
 EXPOSE 8000 2222
 
 # Entrypoint
-ENTRYPOINT [ "utility/init.sh" ]
+ENTRYPOINT [ "scripts/init.sh" ]

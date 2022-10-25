@@ -1,4 +1,6 @@
 {% load static %}
+{% load render_bundle from webpack_loader %}
+{% load webpack_static from webpack_loader %}
 <!DOCTYPE html>
 <html lang="ro">
 
@@ -21,12 +23,12 @@
   {% endblock meta_social %}
 
   <link rel="canonical" href="https://project.ro/"/>
-  <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
-  <link rel="apple-touch-icon" type="image/png" href="{% static 'apple-touch-icon.png' %}">
+  <link rel="shortcut icon" type="image/png" href="{% webpack_static 'images/favicon.ico' %}"/>
+  <link rel="apple-touch-icon" type="image/png" href="{% webpack_static 'apple-touch-icon' %}">
 
   <!-- Load CSS -->
   {% block stylesheet %}
-    <link type="text/css" href="{% static '/css/main.css' %}" rel="stylesheet">
+    {% render_bundle 'index' 'css' %}
   {% endblock stylesheet %}
 
   <title>{% block title %}My Project{% endblock %}</title>
@@ -53,11 +55,13 @@
 
 <!-- Javascript-->
 {% block footer_script %}
-<script defer src="{% static '/js/axios.bundle.js.gz' %}"></script>
-<script defer src="{% static '/js/alpine.bundle.js.gz' %}"></script>
-<script defer src="{% static '/js/htmx.bundle.js.gz' %}"></script>
-<script defer src="{% static '/js/runtime.bundle.js.gz' %}"></script>
-<script defer src="{% static '/js/index.bundle.js.gz' %}"></script>
+{% render_bundle 'alpine' 'js' %}
+{% render_bundle 'htmx' 'js' %}
+{% render_bundle 'index' 'js' %}
+{% comment %} <script defer src="{% static '/js/alpine.bundle.js.gz' %}"></script> {% endcomment %}
+{% comment %} <script defer src="{% static '/js/htmx.bundle.js.gz' %}"></script> {% endcomment %}
+{% comment %} <script defer src="{% static '/js/runtime.bundle.js.gz' %}"></script> {% endcomment %}
+{% comment %} <script defer src="{% static '/js/index.bundle.js.gz' %}"></script> {% endcomment %}
   <script>
       document.body.addEventListener('htmx:configRequest', (event) => {
           event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';

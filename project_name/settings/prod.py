@@ -20,16 +20,6 @@ CSRF_COOKIE_SECURE = True
 SECURE_BROWSER_XSS_FILTER = True
 CSRF_TRUSTED_ORIGINS = ["https://*.project.com"]
 
-# STATIC
-# -----------------------------------------------------------------------------
-STATICFILES_STORAGE = "project.backend.storage.AzureStaticStorage"
-STATIC_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{AZURE_STATIC_CONTAINER}/"
-
-# MEDIA
-# -----------------------------------------------------------------------------
-DEFAULT_FILE_STORAGE = "project.backend.storage.AzureMediaStorage"
-MEDIA_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{AZURE_MEDIA_CONTAINER}/"
-
 # DATABASES
 # -----------------------------------------------------------------------------
 DATABASES = {
@@ -49,4 +39,4 @@ DATABASES = {
 # CORS Settings
 # -----------------------------------------------------------------------------
 # CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWED_ORIGINS = []
+CORS_ALLOWED_ORIGINS = ["*"]

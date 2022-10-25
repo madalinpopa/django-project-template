@@ -11,7 +11,7 @@ This is a project template that I use mostly when I start a new Django project.
   - `static`: Static files
   - `assets`: Web files used by webpack to generate static files
 - `requirements`: Requirements separated by environment
-- `utility`: A folder which contains differnt scripts, db files, etc.
+- `scripts`: A folder which contains differnt scripts, db files, etc.
   - `bootstrap.sh`: A script to generate the `.env` file and start the docker compose
   - `init.sh`: A script used in docker container to start the Django application
   - `sshd_config`: SSHD config for SSH service in docker container
@@ -36,7 +36,7 @@ DB_HOST
 DB_PORT
 ```
 
-Also, you can run `utility/bootstrap.sh` to create an `.env` file. Update the project settings and remove or add environment variables as per your need.
+Also, you can run `scripts/bootstrap.sh` to create an `.env` file. Update the project settings and remove or add environment variables as per your need.
 
 ## Use the template
 
@@ -55,3 +55,32 @@ django-admin startproject --template https://github.com/madalinpopa/django-proje
 - `Dockerfile`
 - `gitignore`
 - `dockerignore`
+
+## Webpack libaries and plugins
+
+```bash
+
+# Webpack
+webpack
+webpack-cli
+webpack-merge
+webpack-bundle-tracker
+
+# Webpack plugins
+mini-css-extract-plugin
+compression-webpack-plugin
+
+# Webpack loaders
+css-loader
+postcss-loader
+babel-loader
+
+# Other libraries
+@babel/core
+@babel/preset-env
+htmx.org
+alpinejs
+autoprefixer
+postcss
+tailwindcss
+```

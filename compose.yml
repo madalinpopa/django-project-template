@@ -26,7 +26,7 @@ services:
     environment:
       - NODE_ENV=development
     working_dir: /app
-    command: yarn run dev
+    command: yarn run build:dev
     volumes:
       - ./:/app
 
