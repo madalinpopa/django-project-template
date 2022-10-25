@@ -125,7 +125,7 @@ dmypy.json
 .pyre/
 
 # Ignore build files
-{{project_name}}/assets
+**/assets
 
 # Project files that I don't want them in the final build
 *.md
