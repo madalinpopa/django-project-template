@@ -85,7 +85,7 @@ RUN --mount=type=cache,target=/var/cache/apt-production \
 COPY ./scripts/sshd_config /etc/ssh/
 
 # Set the working directory
-WORKDIR /opt/project_name
+WORKDIR /opt/{{ project_name }}
 
 # Copy build from base
 COPY --from=base /opt/venv /opt/venv

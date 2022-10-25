@@ -52,7 +52,7 @@ Also, you can run `scripts/bootstrap.sh` to create an `.env` file. Update the pr
 ```bash
 django-admin startproject \
   --template https://github.com/madalinpopa/django-project-template/archive/master.zip \
-  --extension py,cfg,yml,ini,toml,sh,js \
+  --extension py,cfg,yml,ini,toml,sh,js,Dockerfile,Makefile,.gitignore \
   <project_name>
 
 ```
