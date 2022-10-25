@@ -52,19 +52,17 @@ Also, you can run `scripts/bootstrap.sh` to create an `.env` file. Update the pr
 ```bash
 django-admin startproject \
   --template https://github.com/madalinpopa/django-project-template/archive/master.zip \
-  --extension py,cfg,yml,ini,toml,sh,js,Dockerfile,Makefile,.gitignore \
+  --extension py,cfg,yml,ini,toml,sh,js \
   <project_name>
 
 ```
 
-➡️ Update and replace the `project_name` with your project name the following files
+➡️ Remove `yml` extension for below files
 
-- `init.sh`
-- `bootstrap.sh`
-- `compose.yml`
 - `Dockerfile`
 - `gitignore`
 - `dockerignore`
+- `Makefile`
 
 ## Webpack libaries and plugins
 

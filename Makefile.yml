@@ -6,8 +6,8 @@ endif
 # VARIABLES
 TAG=stage
 DOCKER_BUILD_ENV=prod
-DOCKER_IMAGE=project_name
-DJANGO_SETTINGS_MODULE=project_name.settings.dev
+DOCKER_IMAGE={{ project_name }}
+DJANGO_SETTINGS_MODULE={{ project_name }}.settings.dev
 
 # -------------------------------------------------------
 # Utilities commands
