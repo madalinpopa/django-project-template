@@ -167,6 +167,7 @@ LOGGING = {
 }
 
 # WEBPACK
+# -----------------------------------------------------------------------------
 # https://github.com/django-webpack/django-webpack-loader
 WEBPACK_LOADER = {
     "DEFAULT": {
