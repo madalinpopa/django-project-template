@@ -1,5 +1,6 @@
 # syntax=docker/dockerfile:1
 
+# Used to specify the requirements.txt
 ARG DOCKER_BUILD_ENV=prod
 
 # ********************************************************
