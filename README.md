@@ -1,6 +1,6 @@
 # Django New Project Template
 
-This is a project template that I use mostly when I start a new Django project.
+A project template that I use mostly when I start a new Django project.
 
 ## Structure and folders
 
