@@ -47,7 +47,7 @@ module.exports = {
          * This is the public path where the server will look for static files
          * Something like https://localhost:8000/static/js/index.bundle.js
          */
-        publicPath: 'static/',
+        publicPath: '/static/',
         /**
          * This is the file name that will result from the entries
          */
