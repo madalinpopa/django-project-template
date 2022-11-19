@@ -9,9 +9,9 @@ Django==4.1.1                  # https://pypi.org/search/?q=Django
 # djangorestframework==3.14.0    # https://pypi.org/project/djangorestframework/
 # django-summernote==0.8.20.0    # https://pypi.org/project/django-summernote/
 # django-resized==1.0.2         # https://pypi.org/project/django-resized/
+# django-recaptcha==3.0.0         # https://pypi.org/project/django-recaptcha/
 django-widget-tweaks==1.4.12   # https://pypi.org/project/django-widget-tweaks/
 django-cors-headers==3.13.0    # https://pypi.org/project/django-cors-headers/
-# django-recaptcha==3.0.0         # https://pypi.org/project/django-recaptcha/
 django-webpack-loader            # https://pypi.org/project/django-webpack-loader/
 
 # Utilities
