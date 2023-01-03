@@ -23,13 +23,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
+
+# https://docs.djangoproject.com/en/4.0/ref/settings/#site-id
+SITE_ID = 1
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     # Django Apps
     "django.contrib.admin",
     "django.contrib.auth",
@@ -38,10 +41,16 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
-    # Third-Party Apps
-    "webpack_loader",
-    # Local Apps
 ]
+
+THIRD_PARTY_APPS = [
+    "webpack_loader",
+    "widget_tweaks",
+]
+
+LOCAL_APPS = []
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -54,6 +63,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+# URLS CONFIG
+# -----------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/4.1/ref/settings/#root-urlconf
 ROOT_URLCONF = "{{ project_name }}.urls"
 
 TEMPLATES = [
@@ -71,24 +83,32 @@ TEMPLATES = [
         },
     },
 ]
-
+# https://docs.djangoproject.com/en/4.1/ref/settings/#wsgi-application
 WSGI_APPLICATION = "{{ project_name }}.wsgi.application"
 
+# MIGRATIONS
+# -----------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/4.0/ref/settings/#migration-modules
+# MIGRATION_MODULES = {}
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+# SET CUSTOM USER MODEL
+# -----------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting
+# -AUTH_USER_MODEL
+# AUTH_USER_MODEL = "users.User"
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "scripts/db.sqlite3",
-    }
-}
+# https://docs.djangoproject.com/en/4.1/ref/settings/#std-setting-LOGIN_URL
+# LOGIN_URL = "/users/login/"
+
+# https://docs.djangoproject.com/en/4.0/ref/settings/#login-redirect-url
+# LOGIN_REDIRECT_URL = "/users/"
+
+# https://docs.djangoproject.com/en/4.0/ref/settings/#logout-redirect-url
+# LOGOUT_REDIRECT_URL = "/users/login/"
 
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -118,13 +138,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [
     BASE_DIR / "{{ project_name }}/static",
 ]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
 
 # MEDIA
 # -----------------------------------------------------------------------------
@@ -136,6 +155,10 @@ MEDIA_ROOT = BASE_DIR / "{{ project_name }}/media/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Whitenoise configuration
+# http://whitenoise.evans.io/en/stable/django.html
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 # LOGGING
 # -----------------------------------------------------------------------------
@@ -167,7 +190,6 @@ LOGGING = {
 }
 
 # WEBPACK
-# -----------------------------------------------------------------------------
 # https://github.com/django-webpack/django-webpack-loader
 WEBPACK_LOADER = {
     "DEFAULT": {
@@ -177,3 +199,4 @@ WEBPACK_LOADER = {
         "IGNORE": [r".+\.hot-update.js", r".+\.map"],
     }
 }
+

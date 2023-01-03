@@ -1,7 +1,16 @@
 """
 Development settings
 """
+import warnings
 from .base import *
+
+# Related:
+#   - https://github.com/evansd/whitenoise/issues/215
+#   - https://github.com/evansd/whitenoise/issues/191
+#   - https://github.com/evansd/whitenoise/commit/4204494d44213f7a51229de8bc224cf6d84c01eb
+warnings.filterwarnings(
+    "ignore", message="No directory at", module="whitenoise.base"
+)
 
 # GENERAL
 # -----------------------------------------------------------------------------

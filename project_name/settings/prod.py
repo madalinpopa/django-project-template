@@ -7,6 +7,7 @@ from .base import *
 # -----------------------------------------------------------------------------
 
 DEBUG = False
+
 ALLOWED_HOSTS = [
     "{{ project_name }}.com",
 ]
