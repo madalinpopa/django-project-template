@@ -1,13 +1,3 @@
-ifneq (,$(wildcard ./.env))
-    include .env
-    export
-endif
-
-# VARIABLES
-TAG=stage
-DOCKER_BUILD_ENV=prod
-DOCKER_IMAGE={{ project_name }}
-DJANGO_SETTINGS_MODULE={{ project_name }}.settings.dev
 
 # -------------------------------------------------------
 # Utilities commands
@@ -26,33 +16,39 @@ rmc:
 
 rmi:
 	@docker rmi $$(docker images -q)
-
-# -------------------------------------------------------
-# Container Build and push to Docker
+	
 #--------------------------------------------------------
-build-dev:
-	docker build -t ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE}:dev \
-	--target development \
-	--network host \
-	--build-arg DOCKER_BUILD_ENV=local \
-	--build-arg SECRET_KEY=${SECRET_KEY} \
-	--build-arg DJANGO_SETTINGS_MODULE=DJANGO_SETTINGS_MODULE \
-	--build-arg DB_NAME=${DB_NAME} \
-	--build-arg DB_HOST=${DB_HOST} \
-	--build-arg DB_PASS=${DB_PASS} \
-	--build-arg DB_USER=${DB_USER} .
-
-build-prod:
-	docker build -t ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE}:${TAG} \
-	--build-arg DOCKER_BUILD_ENV=${DOCKER_BUILD_ENV} .
-
-push:
-	docker push ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE}:${TAG}
-
-# -------------------------------------------------------
-# Pre-production database setup
+# Postgresql database commands
 #--------------------------------------------------------
+# You need to install postgresql-client first
+connect-db:
+	psql -h localhost -p 5432 -d budgetapp_dev -U budget
+
+# Useful commands
+# \l  - List available databases
+# \dt - List available tables
+# \du - List users and their roles
+# \q - Quit psql
+
+remove-db-tabels:
+	psql -h localhost -p 5432 -d budgetapp_dev -U budget -f scripts/clean_db.sql
+	
+#--------------------------------------------------------
+# Django migrations commands
+#--------------------------------------------------------
+clear-migration-history:
+	python manage.py migrate --fake budgets zero
+	python manage.py migrate --fake users zero
+	python manage.py showmigrations
+
+remove-migration-files:
+	find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+	find . -path "*/migrations/*.pyc" -delete
+
 makemigrations:
-	docker run --rm --network host \
-	${DOCKERHUB_USERNAME}/${DOCKER_IMAGE}:dev \
-	/bin/bash -c "python manage.py makemigrations && python manage.py migrate"
+	python manage.py makemigrations
+
+migrate:
+	python manage.py migrate
+
+
