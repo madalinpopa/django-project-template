@@ -14,21 +14,10 @@ module.exports = {
    * ENTRY
    *
    * index.js: is the main entrypoint.
-   * babel.bundle.js: is the bable entrypoint
-   * vue.bundle.js: is the vue.js entrypoint
    */
   entry: {
-    alpine: 'alpinejs',
-    /**
-     * HTMX load
-     */
-    htmx: 'htmx.org',
-    /**
-     * index.js entrypoint
-     */
     index: {
       import: path.resolve(__dirname, '../{{ project_name }}/assets/index.js'),
-      dependOn: ['htmx', 'alpine'], // ['htmx', 'vue']
     },
   },
   /**
@@ -123,6 +112,5 @@ module.exports = {
    */
   optimization: {
     minimize: false,
-    runtimeChunk: 'single',
   },
 };
