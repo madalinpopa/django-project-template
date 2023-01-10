@@ -55,13 +55,7 @@
 
 <!-- Javascript-->
 {% block footer_script %}
-{% render_bundle 'alpine' 'js' %}
-{% render_bundle 'htmx' 'js' %}
 {% render_bundle 'index' 'js' %}
-{% comment %} <script defer src="{% static '/js/alpine.bundle.js.gz' %}"></script> {% endcomment %}
-{% comment %} <script defer src="{% static '/js/htmx.bundle.js.gz' %}"></script> {% endcomment %}
-{% comment %} <script defer src="{% static '/js/runtime.bundle.js.gz' %}"></script> {% endcomment %}
-{% comment %} <script defer src="{% static '/js/index.bundle.js.gz' %}"></script> {% endcomment %}
   <script>
       document.body.addEventListener('htmx:configRequest', (event) => {
           event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
