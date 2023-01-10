@@ -25,7 +25,7 @@ if [ ! -f ".env" ]; then
     echo 'DB_NAME="{{project_name}}"' >>.env
     echo 'DB_HOST="localhost"' >>.env
     echo 'DB_PASS="abc123"' >>.env
-    echo 'DB_USER="{{ project_name }} "' >>.env
+    echo 'DB_USER="{{ project_name }}"' >>.env
 
 fi
 
