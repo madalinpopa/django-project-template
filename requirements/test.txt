@@ -2,20 +2,18 @@
 
 # Testing
 # -----------------------------------------------------------------------
-coverage[toml]==7.0.2           # https://pypi.org/project/coverage/
+coverage[toml]==7.2.5           # https://pypi.org/project/coverage/
 django-coverage-plugin==3.0.0   # https://pypi.org/project/django-coverage-plugin/
-Faker==16.1.0                   # https://pypi.org/project/Faker/
-selenium==4.7.2                 # https://pypi.org/project/selenium/
-webdriver-manager==3.8.5        # https://pypi.org/project/webdriver-manager/
+Faker==18.9.0                   # https://pypi.org/project/Faker/
+selenium==4.9.1                 # https://pypi.org/project/selenium/
+webdriver-manager==3.8.6        # https://pypi.org/project/webdriver-manager/
 tblib==1.7.0                    # https://pypi.org/project/tblib/
 
 
 # Code quality
 # -----------------------------------------------------------------------
-pylint==2.15.9                  # https://pypi.org/project/pylint/
-pylint-django==2.5.3            # https://pypi.org/project/pylint-django/
-mypy==0.991                     # https://pypi.org/project/mypy/
+# mypy==0.991                     # https://pypi.org/project/mypy/
 
 # Database
 # -----------------------------------------------------------------------
-psycopg2-binary==2.9.5   # https://pypi.org/project/psycopg2-binary/
+psycopg2-binary==2.9.6   # https://pypi.org/project/psycopg2-binary/
